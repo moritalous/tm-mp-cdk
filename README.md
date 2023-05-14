@@ -1,14 +1,50 @@
-# Welcome to your CDK TypeScript project
+# README
 
-This is a blank project for CDK development with TypeScript.
+* Install pnpm
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+```shell
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
 
-## Useful commands
+* Install Node.js
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+```shell
+pnpm env use --global lts
+```
+
+* Install CDK
+
+```shell
+pnpm add -g aws-cdk
+```
+
+* Create Project
+
+```shell
+mkdir tm-mp-cdk
+cd $_
+
+cdk init app --language typescript
+```
+
+* (option)Link AWS credentials
+
+```shell
+ln -s $PWD/.aws ~/.aws
+```
+
+* Deploy
+
+```shell
+TwinmakerWorkspaceId=TwinmakerWorkspaceId
+MatterportApplicationKey=MatterportApplicationKey
+MatterportClientId=MatterportClientId
+MatterportClientSecret=MatterportClientSecret
+
+cdk deploy \
+--require-approval never \
+--parameters TwinmakerWorkspaceId=${TwinmakerWorkspaceId} \
+--parameters MatterportApplicationKey=${MatterportApplicationKey} \
+--parameters MatterportClientId=${MatterportClientId} \
+--parameters MatterportClientSecret=${MatterportClientSecret}
+```
