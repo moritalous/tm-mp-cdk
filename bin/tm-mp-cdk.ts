@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { TmMpCdkStack } from '../lib/tm-mp-cdk-stack';
+import { RootStack } from '../lib/tm-mp-stack';
 
 const app = new cdk.App();
-new TmMpCdkStack(app, 'TmMpCdkStack', {
+new RootStack(app, 'TmMpStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
